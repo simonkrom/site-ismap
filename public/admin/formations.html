@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des formations - ISMAP² Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-dashboard">
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="ISMAP²" class="sidebar-logo">
+                <h3>ISMAP² Admin</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i><span>Tableau de bord</span></a>
+                <a href="candidats.html" class="nav-item"><i class="fas fa-users"></i><span>Candidats</span></a>
+                <a href="etudiants.html" class="nav-item"><i class="fas fa-user-graduate"></i><span>Étudiants</span></a>
+                <a href="paiements.html" class="nav-item"><i class="fas fa-credit-card"></i><span>Paiements</span></a>
+                <a href="formations.html" class="nav-item active"><i class="fas fa-graduation-cap"></i><span>Formations</span></a>
+                <a href="contenu.html" class="nav-item"><i class="fas fa-newspaper"></i><span>Gestion du contenu</span></a>
+                <a href="utilisateurs.html" class="nav-item"><i class="fas fa-user-cog"></i><span>Utilisateurs</span></a>
+                <a href="parametres.html" class="nav-item"><i class="fas fa-cog"></i><span>Paramètres</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn" class="nav-item"><i class="fas fa-sign-out-alt"></i><span>Déconnexion</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+                <div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Rechercher..."></div>
+                <div class="user-menu"><span class="user-name">Admin ISMAP²</span><img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar"></div>
+            </header>
+
+            <div class="content">
+                <div class="page-header">
+                    <h1>Gestion des formations</h1>
+                    <button class="btn-add" id="addFormationBtn"><i class="fas fa-plus"></i> Ajouter une formation</button>
+                </div>
+
+                <!-- Onglets -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="licences">Licences</button>
+                    <button class="tab-btn" data-tab="masters">Masters</button>
+                    <button class="tab-btn" data-tab="professionnelles">Professionnelles</button>
+                </div>
+
+                <!-- Liste des formations -->
+                <div class="formations-list" id="formationsList">
+                    <!-- Contenu dynamique -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Ajouter/Modifier Formation -->
+    <div id="formationModal" class="modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2 id="modalTitle">Ajouter une formation</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="formationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Titre de la formation *</label>
+                            <input type="text" id="formationTitre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Catégorie *</label>
+                            <select id="formationCategorie" required>
+                                <option value="licence">Licence</option>
+                                <option value="master">Master</option>
+                                <option value="professionnelle">Formation Professionnelle</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Durée</label>
+                            <input type="text" id="formationDuree" placeholder="Ex: 3 ans">
+                        </div>
+                        <div class="form-group">
+                            <label>Frais de scolarité (FCFA)</label>
+                            <input type="number" id="formationFrais">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="formationDescription" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Prérequis</label>
+                        <textarea id="formationPrerequis" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Débouchés</label>
+                        <textarea id="formationDebouches" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Statut</label>
+                        <select id="formationStatut">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel">Annuler</button>
+                <button class="btn-save" id="saveFormationBtn">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

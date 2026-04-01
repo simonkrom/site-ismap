@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des étudiants - ISMAP² Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-dashboard">
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="ISMAP²" class="sidebar-logo">
+                <h3>ISMAP² Admin</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i><span>Tableau de bord</span></a>
+                <a href="candidats.html" class="nav-item"><i class="fas fa-users"></i><span>Candidats</span><span class="badge">24</span></a>
+                <a href="etudiants.html" class="nav-item active"><i class="fas fa-user-graduate"></i><span>Étudiants</span><span class="badge">156</span></a>
+                <a href="paiements.html" class="nav-item"><i class="fas fa-credit-card"></i><span>Paiements</span><span class="badge">12</span></a>
+                <a href="formations.html" class="nav-item"><i class="fas fa-graduation-cap"></i><span>Formations</span></a>
+                <a href="contenu.html" class="nav-item"><i class="fas fa-newspaper"></i><span>Gestion du contenu</span></a>
+                <a href="utilisateurs.html" class="nav-item"><i class="fas fa-user-cog"></i><span>Utilisateurs</span></a>
+                <a href="parametres.html" class="nav-item"><i class="fas fa-cog"></i><span>Paramètres</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn" class="nav-item"><i class="fas fa-sign-out-alt"></i><span>Déconnexion</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+                <div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Rechercher..."></div>
+                <div class="user-menu"><span class="user-name">Admin ISMAP²</span><img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar"></div>
+            </header>
+
+            <div class="content">
+                <div class="page-header">
+                    <h1>Gestion des étudiants</h1>
+                    <div class="header-actions">
+                        <button class="btn-add" id="addStudentBtn"><i class="fas fa-plus"></i> Ajouter un étudiant</button>
+                        <button class="btn-export"><i class="fas fa-download"></i> Exporter</button>
+                    </div>
+                </div>
+
+                <!-- Statistiques Étudiants -->
+                <div class="student-stats">
+                    <div class="stat-card small">
+                        <div class="stat-value">156</div>
+                        <div class="stat-label">Total étudiants</div>
+                    </div>
+                    <div class="stat-card small">
+                        <div class="stat-value">98</div>
+                        <div class="stat-label">Hommes</div>
+                    </div>
+                    <div class="stat-card small">
+                        <div class="stat-value">58</div>
+                        <div class="stat-label">Femmes</div>
+                    </div>
+                    <div class="stat-card small">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Nouveaux (2026)</div>
+                    </div>
+                </div>
+
+                <!-- Filtres -->
+                <div class="filters-bar">
+                    <select id="filterFormation">
+                        <option value="">Toutes les formations</option>
+                        <option value="licence_management">Licence Management</option>
+                        <option value="licence_admin">Licence Administration</option>
+                        <option value="master_management">Master Management</option>
+                        <option value="master_finance">Master Finance</option>
+                        <option value="bachelor_marketing">Bachelor Marketing</option>
+                    </select>
+                    <select id="filterAnnee">
+                        <option value="">Toutes les années</option>
+                        <option value="1">Année 1</option>
+                        <option value="2">Année 2</option>
+                        <option value="3">Année 3</option>
+                    </select>
+                    <select id="filterStatut">
+                        <option value="">Tous les statuts</option>
+                        <option value="actif">Actif</option>
+                        <option value="suspendu">Suspendu</option>
+                        <option value="diplome">Diplômé</option>
+                    </select>
+                    <input type="text" id="searchStudent" placeholder="Rechercher par nom, matricule...">
+                </div>
+
+                <!-- Liste des étudiants -->
+                <div class="students-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAllStudents"></th>
+                                <th>Matricule</th>
+                                <th>Étudiant</th>
+                                <th>Formation</th>
+                                <th>Année</th>
+                                <th>Téléphone</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsList">
+                            <!-- Données dynamiques -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Ajouter/Modifier Étudiant -->
+    <div id="studentModal" class="modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2 id="studentModalTitle">Ajouter un étudiant</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="studentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Matricule *</label>
+                            <input type="text" id="matricule" placeholder="ISMAP20260001" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Statut *</label>
+                            <select id="statut" required>
+                                <option value="actif">Actif</option>
+                                <option value="suspendu">Suspendu</option>
+                                <option value="diplome">Diplômé</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nom *</label>
+                            <input type="text" id="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Prénom(s) *</label>
+                            <input type="text" id="prenom" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Téléphone *</label>
+                            <input type="tel" id="telephone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date de naissance</label>
+                            <input type="date" id="dateNaissance">
+                        </div>
+                        <div class="form-group">
+                            <label>Lieu de naissance</label>
+                            <input type="text" id="lieuNaissance">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Formation *</label>
+                            <select id="formation" required>
+                                <option value="">Sélectionner une formation</option>
+                                <optgroup label="Licences">
+                                    <option value="licence_management">Licence en Management</option>
+                                    <option value="licence_admin">Licence en Administration Publique</option>
+                                    <option value="licence_finance">Licence en Finance & Comptabilité</option>
+                                </optgroup>
+                                <optgroup label="Masters">
+                                    <option value="master_management">Master en Management Stratégique</option>
+                                    <option value="master_finance">Master en Finance</option>
+                                </optgroup>
+                                <optgroup label="Professionnelles">
+                                    <option value="bachelor_marketing">Bachelor Marketing Digital</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Année d'étude</label>
+                            <select id="anneeEtude">
+                                <option value="1">Année 1</option>
+                                <option value="2">Année 2</option>
+                                <option value="3">Année 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <textarea id="adresse" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <div class="file-upload">
+                            <input type="file" id="photo" accept="image/*">
+                            <span class="file-name">Aucun fichier choisi</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel">Annuler</button>
+                <button class="btn-save" id="saveStudentBtn">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Détails Étudiant -->
+    <div id="studentDetailsModal" class="modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2>Fiche étudiant</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body" id="studentDetailsContent">
+                <!-- Contenu dynamique -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-edit" id="editStudentBtn">Modifier</button>
+                <button class="btn-print" id="printStudentCardBtn"><i class="fas fa-id-card"></i> Imprimer carte</button>
+                <button class="btn-delete" id="deleteStudentBtn">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

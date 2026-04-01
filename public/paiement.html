@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paiement en ligne ISMAP² - Règlement sécurisé des frais de scolarité">
+    <title>Paiement en ligne - ISMAP²</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="ISMAP² Logo">
+                    <span>ISMAP²</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">ISMAP²</a></li>
+                <li><a href="formations.html">Formations</a></li>
+                <li><a href="admission.html">Admissions</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="preinscription.html" class="btn btn-primary">Préinscription</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Paiement en ligne sécurisé</h1>
+                <p>Réglez vos frais de scolarité en toute sécurité</p>
+            </div>
+        </section>
+
+        <section class="payment-section">
+            <div class="container">
+                <div class="payment-container">
+                    <div class="payment-info">
+                        <div class="student-info">
+                            <h3>Informations de l'étudiant</h3>
+                            <div class="info-card">
+                                <p><strong>Nom :</strong> <span id="studentName">Dupont Jean</span></p>
+                                <p><strong>Numéro étudiant :</strong> <span id="studentId">ISMAP20260001</span></p>
+                                <p><strong>Formation :</strong> <span id="studentFormation">Licence en Management</span></p>
+                            </div>
+                        </div>
+
+                        <div class="payment-summary">
+                            <h3>Détails du paiement</h3>
+                            <div class="summary-card">
+                                <div class="summary-row">
+                                    <span>Frais d'inscription :</span>
+                                    <span>50 000 FCFA</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Frais de scolarité :</span>
+                                    <span>500 000 FCFA</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Frais de dossier :</span>
+                                    <span>25 000 FCFA</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total à payer :</span>
+                                    <span id="totalAmount">575 000 FCFA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-methods">
+                            <h3>Mode de paiement</h3>
+                            <div class="methods-grid">
+                                <div class="method-card" data-method="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Carte bancaire</span>
+                                </div>
+                                <div class="method-card" data-method="mobile">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Mobile Money</span>
+                                </div>
+                                <div class="method-card" data-method="bank">
+                                    <i class="fas fa-university"></i>
+                                    <span>Virement bancaire</span>
+                                </div>
+                                <div class="method-card" data-method="wave">
+                                    <i class="fas fa-waveform"></i>
+                                    <span>Wave</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-form-container">
+                        <!-- Paiement par carte -->
+                        <div id="cardPayment" class="payment-form active">
+                            <h3>Paiement par carte bancaire</h3>
+                            <form id="cardForm">
+                                <div class="form-group">
+                                    <label for="cardNumber">Numéro de carte</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                    <i class="fas fa-credit-card card-icon"></i>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiryDate">Date d'expiration</label>
+                                        <input type="text" id="expiryDate" placeholder="MM/AA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" placeholder="123" maxlength="3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardName">Nom du titulaire</label>
+                                    <input type="text" id="cardName" placeholder="Comme sur la carte">
+                                </div>
+                                <button type="submit" class="btn-pay">Payer 575 000 FCFA</button>
+                            </form>
+                        </div>
+
+                        <!-- Paiement Mobile Money -->
+                        <div id="mobilePayment" class="payment-form">
+                            <h3>Paiement Mobile Money</h3>
+                            <form id="mobileForm">
+                                <div class="form-group">
+                                    <label>Opérateur</label>
+                                    <div class="radio-group">
+                                        <label>
+                                            <input type="radio" name="operator" value="mtn"> MTN Mobile Money
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="operator" value="airtel"> Airtel Money
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="operator" value="moov"> Moov Money
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phoneNumber">Numéro de téléphone</label>
+                                    <input type="tel" id="phoneNumber" placeholder="06 XX XX XX XX">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pinCode">Code PIN (4 chiffres)</label>
+                                    <input type="password" id="pinCode" maxlength="4" pattern="[0-9]{4}">
+                                </div>
+                                <button type="submit" class="btn-pay">Payer 575 000 FCFA</button>
+                            </form>
+                        </div>
+
+                        <!-- Virement bancaire -->
+                        <div id="bankPayment" class="payment-form">
+                            <h3>Virement bancaire</h3>
+                            <div class="bank-details">
+                                <p>Effectuez votre virement aux coordonnées ci-dessous :</p>
+                                <div class="bank-info">
+                                    <p><strong>Banque :</strong> BGFI Bank Gabon</p>
+                                    <p><strong>Titulaire du compte :</strong> ISMAP²</p>
+                                    <p><strong>IBAN :</strong> GA21 0000 1234 5678 9012 3456 789</p>
+                                    <p><strong>SWIFT :</strong> BGFIGALX</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="transferRef">Référence de virement</label>
+                                    <input type="text" id="transferRef" placeholder="Votre numéro étudiant">
+                                </div>
+                                <div class="upload-group">
+                                    <label for="proof">Relevé de virement</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="proof" accept=".pdf,.jpg,.png">
+                                        <span class="file-name">Importer le justificatif</span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-pay">Confirmer le virement</button>
+                            </div>
+                        </div>
+
+                        <!-- Paiement Wave -->
+                        <div id="wavePayment" class="payment-form">
+                            <h3>Paiement Wave</h3>
+                            <div class="wave-details">
+                                <div class="qr-code">
+                                    <img src="assets/images/qr-code-wave.png" alt="QR Code Wave">
+                                    <p>Scannez ce QR code avec l'application Wave</p>
+                                </div>
+                                <div class="wave-phone">
+                                    <p>Ou envoyez le paiement à :</p>
+                                    <div class="wave-number">
+                                        <i class="fas fa-phone"></i>
+                                        <span>06 018 76 34</span>
+                                        <button class="copy-number">Copier</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="waveRef">Numéro de transaction Wave</label>
+                                    <input type="text" id="waveRef" placeholder="Référence de la transaction">
+                                </div>
+                                <button type="submit" class="btn-pay">Valider le paiement</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-security">
+                    <i class="fas fa-lock"></i>
+                    <p>Paiement 100% sécurisé - Transactions cryptées SSL</p>
+                    <div class="security-logos">
+                        <img src="assets/images/visa.png" alt="Visa">
+                        <img src="assets/images/mastercard.png" alt="Mastercard">
+                        <img src="assets/images/mtn-money.png" alt="MTN Money">
+                        <img src="assets/images/airtel-money.png" alt="Airtel Money">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ISMAP²</h3>
+                <p>Institut Supérieur de Management en Administration Publique et Privée</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="admission.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Angondjé Château, à proximité du complexe scolaire Pathy School</p>
+                <p><i class="fas fa-phone"></i> 060 18 76 34 / 076 41 00 30</p>
+                <p><i class="fas fa-envelope"></i> institutismap@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ISMAP² - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>

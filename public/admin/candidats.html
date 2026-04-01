@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des candidats - ISMAP² Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-dashboard">
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="ISMAP²" class="sidebar-logo">
+                <h3>ISMAP² Admin</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i><span>Tableau de bord</span></a>
+                <a href="candidats.html" class="nav-item active"><i class="fas fa-users"></i><span>Candidats</span><span class="badge">24</span></a>
+                <a href="etudiants.html" class="nav-item"><i class="fas fa-user-graduate"></i><span>Étudiants</span><span class="badge">156</span></a>
+                <a href="paiements.html" class="nav-item"><i class="fas fa-credit-card"></i><span>Paiements</span><span class="badge">12</span></a>
+                <a href="formations.html" class="nav-item"><i class="fas fa-graduation-cap"></i><span>Formations</span></a>
+                <a href="contenu.html" class="nav-item"><i class="fas fa-newspaper"></i><span>Gestion du contenu</span></a>
+                <a href="utilisateurs.html" class="nav-item"><i class="fas fa-user-cog"></i><span>Utilisateurs</span></a>
+                <a href="parametres.html" class="nav-item"><i class="fas fa-cog"></i><span>Paramètres</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn" class="nav-item"><i class="fas fa-sign-out-alt"></i><span>Déconnexion</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+                <div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Rechercher..."></div>
+                <div class="user-menu"><span class="user-name">Admin ISMAP²</span><img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar"></div>
+            </header>
+
+            <div class="content">
+                <div class="page-header">
+                    <h1>Gestion des candidats</h1>
+                    <div class="header-actions">
+                        <button class="btn-filter"><i class="fas fa-filter"></i> Filtrer</button>
+                        <button class="btn-export"><i class="fas fa-download"></i> Exporter</button>
+                    </div>
+                </div>
+
+                <!-- Filtres -->
+                <div class="filters-bar">
+                    <select id="filterFormation">
+                        <option value="">Toutes les formations</option>
+                        <option value="licence_management">Licence Management</option>
+                        <option value="licence_admin">Licence Administration</option>
+                        <option value="master_management">Master Management</option>
+                    </select>
+                    <select id="filterStatus">
+                        <option value="">Tous les statuts</option>
+                        <option value="pending">En attente</option>
+                        <option value="reviewed">Dossier étudié</option>
+                        <option value="interview">Entretien programmé</option>
+                        <option value="accepted">Accepté</option>
+                        <option value="rejected">Rejeté</option>
+                    </select>
+                    <input type="date" id="filterDate" placeholder="Date de candidature">
+                </div>
+
+                <!-- Liste des candidats -->
+                <div class="candidates-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAll"></th>
+                                <th>N° Dossier</th>
+                                <th>Candidat</th>
+                                <th>Formation</th>
+                                <th>Date</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="candidatesList">
+                            <!-- Les données seront chargées dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Détails Candidat -->
+    <div id="candidateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Détails du candidat</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body" id="candidateDetails">
+                <!-- Contenu dynamique -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-reject">Rejeter</button>
+                <button class="btn-accept">Accepter</button>
+                <button class="btn-interview">Programmer entretien</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

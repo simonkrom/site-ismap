@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact ISMAP² - Prenez contact avec notre équipe">
+    <title>Contact - ISMAP²</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="ISMAP² Logo">
+                    <span>ISMAP²</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">ISMAP²</a></li>
+                <li><a href="formations.html">Formations</a></li>
+                <li><a href="admission.html">Admissions</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="preinscription.html" class="btn btn-primary">Préinscription</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Contactez-nous</h1>
+                <p>Une question ? Notre équipe est à votre écoute</p>
+            </div>
+        </section>
+
+        <!-- Informations de contact -->
+        <section class="contact-info-section">
+            <div class="container">
+                <div class="contact-info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Adresse</h3>
+                        <p>Angondjé Château</p>
+                        <p>À proximité du complexe scolaire Pathy School</p>
+                        <p>Libreville, Gabon</p>
+                        <a href="#" class="map-link">Voir sur Google Maps →</a>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>Téléphone</h3>
+                        <p><strong>Standard :</strong> 060 18 76 34</p>
+                        <p><strong>Service scolarité :</strong> 076 41 00 30</p>
+                        <p><strong>WhatsApp :</strong> 060 18 76 34</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p><strong>Informations générales :</strong><br>institutismap@gmail.com</p>
+                        <p><strong>Service admissions :</strong><br>admissions@ismap2.com</p>
+                        <p><strong>Service financier :</strong><br>finance@ismap2.com</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Horaires d'ouverture</h3>
+                        <p><strong>Lundi - Vendredi :</strong> 08h00 - 17h00</p>
+                        <p><strong>Samedi :</strong> 09h00 - 12h00</p>
+                        <p><strong>Dimanche :</strong> Fermé</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulaire de contact + Carte -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-form-container">
+                        <h2>Envoyez-nous un message</h2>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nom">Nom complet *</label>
+                                    <input type="text" id="nom" name="nom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="telephone">Téléphone</label>
+                                    <input type="tel" id="telephone" name="telephone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sujet">Sujet *</label>
+                                    <select id="sujet" name="sujet" required>
+                                        <option value="">Sélectionnez un sujet</option>
+                                        <option value="admission">Demande d'admission</option>
+                                        <option value="information">Information sur les formations</option>
+                                        <option value="inscription">Problème d'inscription</option>
+                                        <option value="paiement">Question sur le paiement</option>
+                                        <option value="partenariat">Proposition de partenariat</option>
+                                        <option value="autre">Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="rgpd" required>
+                                    J'accepte que mes données soient traitées pour me répondre *
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-submit">Envoyer le message</button>
+                        </form>
+                    </div>
+                    <div class="map-container">
+                        <h2>Nous trouver</h2>
+                        <div class="map">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0!2d9.4167!3d0.4167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjUnMDAuMCJOIDnCsDI1JzAwLjAiRQ!5e0!3m2!1sfr!2sga!4v1234567890"
+                                width="100%" 
+                                height="400" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="social-media">
+                            <h3>Suivez-nous</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Contact -->
+        <section class="faq-contact">
+            <div class="container">
+                <h2>Questions fréquentes</h2>
+                <div class="faq-grid-contact">
+                    <div class="faq-item-contact">
+                        <div class="faq-question-contact">
+                            <h3>Comment puis-je obtenir un rendez-vous ?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer-contact">
+                            <p>Vous pouvez prendre rendez-vous en appelant notre standard au 060 18 76 34 ou en envoyant un email à institutismap@gmail.com. Nous vous répondrons dans les 24h.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item-contact">
+                        <div class="faq-question-contact">
+                            <h3>Puis-je visiter le campus ?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer-contact">
+                            <p>Oui, des visites du campus sont organisées sur rendez-vous. Vous pouvez également participer à nos journées portes ouvertes.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item-contact">
+                        <div class="faq-question-contact">
+                            <h3>Comment contacter un enseignant ?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer-contact">
+                            <p>Pour contacter un enseignant, adressez-vous d'abord au secrétariat pédagogique qui vous orientera.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item-contact">
+                        <div class="faq-question-contact">
+                            <h3>Quels sont les délais de réponse ?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer-contact">
+                            <p>Nous nous engageons à répondre à toutes vos demandes sous 48h ouvrées.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ISMAP²</h3>
+                <p>Institut Supérieur de Management en Administration Publique et Privée</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="admission.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Angondjé Château, à proximité du complexe scolaire Pathy School</p>
+                <p><i class="fas fa-phone"></i> 060 18 76 34 / 076 41 00 30</p>
+                <p><i class="fas fa-envelope"></i> institutismap@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ISMAP² - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

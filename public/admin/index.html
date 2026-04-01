@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - ISMAP² Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-dashboard">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="ISMAP²" class="sidebar-logo">
+                <h3>ISMAP² Admin</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Tableau de bord</span>
+                </a>
+                <a href="candidats.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Candidats</span>
+                    <span class="badge">24</span>
+                </a>
+                <a href="etudiants.html" class="nav-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Étudiants</span>
+                    <span class="badge">156</span>
+                </a>
+                <a href="paiements.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Paiements</span>
+                    <span class="badge">12</span>
+                </a>
+                <a href="formations.html" class="nav-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Formations</span>
+                </a>
+                <a href="contenu.html" class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Gestion du contenu</span>
+                </a>
+                <a href="utilisateurs.html" class="nav-item">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Utilisateurs</span>
+                </a>
+                <a href="parametres.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Paramètres</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn" class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Rechercher...">
+                </div>
+                <div class="user-menu">
+                    <span class="user-name">Admin ISMAP²</span>
+                    <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar">
+                </div>
+            </header>
+
+            <div class="content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>156</h3>
+                            <p>Étudiants inscrits</p>
+                            <span class="trend up">+12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>24</h3>
+                            <p>Candidatures en attente</p>
+                            <span class="trend up">+8%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Paiements en attente</p>
+                            <span class="trend down">-5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>95%</h3>
+                            <p>Taux de satisfaction</p>
+                            <span class="trend up">+3%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Évolution des inscriptions</h3>
+                        <canvas id="inscriptionsChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Répartition par formation</h3>
+                        <canvas id="formationsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="activities-section">
+                    <div class="section-header">
+                        <h3>Activités récentes</h3>
+                        <a href="#" class="view-all">Voir tout</a>
+                    </div>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Jean Dupont</strong> a soumis une candidature</p>
+                                <span class="activity-time">Il y a 5 minutes</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p>Paiement reçu de <strong>Marie Claire</strong> - 550 000 FCFA</p>
+                                <span class="activity-time">Il y a 2 heures</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p>Mise à jour de la formation <strong>Marketing Digital</strong></p>
+                                <span class="activity-time">Il y a 3 heures</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p>Candidature de <strong>Paul Mbega</strong> acceptée</p>
+                                <span class="activity-time">Hier</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paiements récents -->
+                <div class="payments-section">
+                    <div class="section-header">
+                        <h3>Derniers paiements</h3>
+                        <a href="paiements.html" class="view-all">Gérer</a>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Étudiant</th>
+                                <th>Formation</th>
+                                <th>Montant</th>
+                                <th>Date</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jean Dupont</td>
+                                <td>Licence Management</td>
+                                <td>550 000 FCFA</td>
+                                <td>15/03/2026</td>
+                                <td><span class="status success">Payé</span></td>
+                            </tr>
+                            <tr>
+                                <td>Marie Claire</td>
+                                <td>Master Finance</td>
+                                <td>725 000 FCFA</td>
+                                <td>14/03/2026</td>
+                                <td><span class="status success">Payé</span></td>
+                            </tr>
+                            <tr>
+                                <td>Paul Mbega</td>
+                                <td>Bachelor Marketing</td>
+                                <td>440 000 FCFA</td>
+                                <td>12/03/2026</td>
+                                <td><span class="status warning">En attente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

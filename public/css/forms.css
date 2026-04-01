@@ -1,0 +1,333 @@
+/* Styles pour les formulaires de préinscription et inscription */
+
+.form-section {
+    padding: 3rem 0;
+    background: var(--gray-bg);
+}
+
+.form-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.form-progress::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ddd;
+    z-index: 1;
+}
+
+.progress-step {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-weight: bold;
+    background: white;
+}
+
+.progress-step.active .step-number {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.progress-step.completed .step-number {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.step-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.progress-step.active .step-label {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Formulaire */
+.application-form {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input:not([type="radio"]):not([type="checkbox"]),
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Upload de fichiers */
+.upload-group {
+    margin-bottom: 1.5rem;
+}
+
+.file-upload {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-upload .file-name {
+    display: block;
+    padding: 0.75rem;
+    border: 1px dashed #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.file-upload:hover .file-name {
+    border-color: var(--accent-color);
+    background: #fff5f0;
+}
+
+/* Boutons de formulaire */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.btn-next, .btn-prev, .btn-submit {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-next {
+    background: var(--accent-color);
+    color: white;
+}
+
+.btn-next:hover {
+    background: #e55a2b;
+    transform: translateY(-2px);
+}
+
+.btn-prev {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-prev:hover {
+    background: #5a6268;
+}
+
+.btn-submit {
+    background: #28a745;
+    color: white;
+}
+
+.btn-submit:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+/* Récapitulatif */
+.recap-section {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.recap-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.recap-content {
+    line-height: 1.8;
+}
+
+/* Info banner */
+.info-banner {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.info-banner i {
+    font-size: 1.5rem;
+    color: #2196f3;
+}
+
+/* Recherche dossier */
+.dossier-search {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.search-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.search-group input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Pricing card */
+.pricing-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.pricing-card h3 {
+    margin-bottom: 1rem;
+}
+
+.pricing-details {
+    margin-top: 1rem;
+}
+
+.pricing-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.pricing-row.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: none;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-progress {
+        display: none;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .form-buttons button {
+        width: 100%;
+    }
+    
+    .search-group {
+        flex-direction: column;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

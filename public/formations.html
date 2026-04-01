@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISMAP² - Nos Formations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="ISMAP² Logo">
+                    <span>ISMAP²</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">ISMAP²</a></li>
+                <li><a href="formations.html" class="active">Formations</a></li>
+                <li><a href="admission.html">Admissions</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="preinscription.html" class="btn btn-primary">Préinscription</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Nos Formations</h1>
+                <p>Des programmes d'excellence pour former les leaders de demain</p>
+            </div>
+        </section>
+
+        <!-- Filtres -->
+        <section class="filtres">
+            <div class="container">
+                <div class="filtres-buttons">
+                    <button class="filter-btn active" data-filter="all">Toutes</button>
+                    <button class="filter-btn" data-filter="licence">Licences</button>
+                    <button class="filter-btn" data-filter="master">Masters</button>
+                    <button class="filter-btn" data-filter="professionnel">Professionnelles</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Liste des formations -->
+        <section class="formations-liste">
+            <div class="container">
+                <div class="formations-grid">
+                    <!-- Management -->
+                    <div class="formation-item" data-category="licence">
+                        <div class="formation-card-large">
+                            <div class="formation-header">
+                                <h3>Licence en Management</h3>
+                                <span class="duree">3 ans</span>
+                            </div>
+                            <p>Formation complète en gestion d'entreprise, stratégie et leadership</p>
+                            <div class="formation-details">
+                                <span><i class="fas fa-clock"></i> Temps plein</span>
+                                <span><i class="fas fa-certificate"></i> Diplôme d'État</span>
+                            </div>
+                            <div class="formation-footer">
+                                <a href="preinscription.html" class="btn btn-primary">Préinscrire</a>
+                                <a href="#" class="btn-details">Voir les détails →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Administration Publique -->
+                    <div class="formation-item" data-category="licence">
+                        <div class="formation-card-large">
+                            <div class="formation-header">
+                                <h3>Licence en Administration Publique</h3>
+                                <span class="duree">3 ans</span>
+                            </div>
+                            <p>Gestion des institutions publiques et politiques de développement</p>
+                            <div class="formation-details">
+                                <span><i class="fas fa-clock"></i> Temps plein</span>
+                                <span><i class="fas fa-certificate"></i> Diplôme d'État</span>
+                            </div>
+                            <div class="formation-footer">
+                                <a href="preinscription.html" class="btn btn-primary">Préinscrire</a>
+                                <a href="#" class="btn-details">Voir les détails →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Finance -->
+                    <div class="formation-item" data-category="licence">
+                        <div class="formation-card-large">
+                            <div class="formation-header">
+                                <h3>Licence en Finance & Comptabilité</h3>
+                                <span class="duree">3 ans</span>
+                            </div>
+                            <p>Expertise financière, contrôle de gestion et audit</p>
+                            <div class="formation-details">
+                                <span><i class="fas fa-clock"></i> Temps plein</span>
+                                <span><i class="fas fa-certificate"></i> Diplôme d'État</span>
+                            </div>
+                            <div class="formation-footer">
+                                <a href="preinscription.html" class="btn btn-primary">Préinscrire</a>
+                                <a href="#" class="btn-details">Voir les détails →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Master Management -->
+                    <div class="formation-item" data-category="master">
+                        <div class="formation-card-large">
+                            <div class="formation-header">
+                                <h3>Master en Management Stratégique</h3>
+                                <span class="duree">2 ans</span>
+                            </div>
+                            <p>Management avancé, stratégie d'entreprise et prise de décision</p>
+                            <div class="formation-details">
+                                <span><i class="fas fa-clock"></i> Temps plein</span>
+                                <span><i class="fas fa-certificate"></i> Diplôme d'État</span>
+                            </div>
+                            <div class="formation-footer">
+                                <a href="preinscription.html" class="btn btn-primary">Préinscrire</a>
+                                <a href="#" class="btn-details">Voir les détails →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marketing Digital -->
+                    <div class="formation-item" data-category="professionnel">
+                        <div class="formation-card-large">
+                            <div class="formation-header">
+                                <h3>Bachelor Marketing Digital</h3>
+                                <span class="duree">1 an</span>
+                            </div>
+                            <p>Formation professionnelle en stratégies digitales et communication</p>
+                            <div class="formation-details">
+                                <span><i class="fas fa-clock"></i> Alternance possible</span>
+                                <span><i class="fas fa-certificate"></i> Certification professionnelle</span>
+                            </div>
+                            <div class="formation-footer">
+                                <a href="preinscription.html" class="btn btn-primary">Préinscrire</a>
+                                <a href="#" class="btn-details">Voir les détails →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Même footer -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ISMAP²</h3>
+                <p>Institut Supérieur de Management en Administration Publique et Privée</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="admission.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Angondjé Château, à proximité du complexe scolaire Pathy School</p>
+                <p><i class="fas fa-phone"></i> 060 18 76 34 / 076 41 00 30</p>
+                <p><i class="fas fa-envelope"></i> institutismap@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ISMAP² - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

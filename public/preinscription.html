@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Préinscription en ligne ISMAP² - Institut Supérieur de Management">
+    <title>Préinscription - ISMAP²</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="ISMAP² Logo">
+                    <span>ISMAP²</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">ISMAP²</a></li>
+                <li><a href="formations.html">Formations</a></li>
+                <li><a href="admission.html">Admissions</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="preinscription.html" class="btn btn-primary">Préinscription</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Préinscription en ligne</h1>
+                <p>Commencez votre parcours à l'ISMAP² dès maintenant</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="form-progress">
+                    <div class="progress-step active">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Informations personnelles</div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Formation choisie</div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Documents</div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Validation</div>
+                    </div>
+                </div>
+
+                <form id="preinscriptionForm" class="application-form" enctype="multipart/form-data">
+                    <!-- Étape 1: Informations personnelles -->
+                    <div class="form-step active" id="step1">
+                        <h2>Informations personnelles</h2>
+                        
+                        <div class="form-group">
+                            <label for="civilite">Civilité *</label>
+                            <select id="civilite" name="civilite" required>
+                                <option value="">Sélectionnez</option>
+                                <option value="M">Monsieur</option>
+                                <option value="Mme">Madame</option>
+                                <option value="Mlle">Mademoiselle</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nom">Nom *</label>
+                                <input type="text" id="nom" name="nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom">Prénom(s) *</label>
+                                <input type="text" id="prenom" name="prenom" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date_naissance">Date de naissance *</label>
+                                <input type="date" id="date_naissance" name="date_naissance" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lieu_naissance">Lieu de naissance *</label>
+                                <input type="text" id="lieu_naissance" name="lieu_naissance" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nationalite">Nationalité *</label>
+                            <input type="text" id="nationalite" name="nationalite" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Téléphone *</label>
+                                <input type="tel" id="telephone" name="telephone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adresse">Adresse complète *</label>
+                            <textarea id="adresse" name="adresse" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ville">Ville *</label>
+                                <input type="text" id="ville" name="ville" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="code_postal">Code postal</label>
+                                <input type="text" id="code_postal" name="code_postal">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pays">Pays *</label>
+                            <input type="text" id="pays" name="pays" value="Gabon" required>
+                        </div>
+
+                        <button type="button" class="btn-next">Suivant →</button>
+                    </div>
+
+                    <!-- Étape 2: Formation choisie -->
+                    <div class="form-step" id="step2">
+                        <h2>Choix de la formation</h2>
+
+                        <div class="form-group">
+                            <label for="niveau_etudes">Niveau d'études actuel *</label>
+                            <select id="niveau_etudes" name="niveau_etudes" required>
+                                <option value="">Sélectionnez</option>
+                                <option value="bac">Baccalauréat</option>
+                                <option value="bac+1">Bac+1</option>
+                                <option value="bac+2">Bac+2</option>
+                                <option value="bac+3">Bac+3</option>
+                                <option value="bac+4">Bac+4</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dernier_diplome">Dernier diplôme obtenu *</label>
+                            <input type="text" id="dernier_diplome" name="dernier_diplome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="annee_obtention">Année d'obtention *</label>
+                            <input type="number" id="annee_obtention" name="annee_obtention" min="2000" max="2026" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="etablissement">Établissement d'origine *</label>
+                            <input type="text" id="etablissement" name="etablissement" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formation_choisie">Formation choisie *</label>
+                            <select id="formation_choisie" name="formation_choisie" required>
+                                <option value="">Sélectionnez une formation</option>
+                                <optgroup label="Licences">
+                                    <option value="licence_management">Licence en Management</option>
+                                    <option value="licence_admin_publique">Licence en Administration Publique</option>
+                                    <option value="licence_finance">Licence en Finance & Comptabilité</option>
+                                </optgroup>
+                                <optgroup label="Masters">
+                                    <option value="master_management">Master en Management Stratégique</option>
+                                    <option value="master_admin_publique">Master en Administration Publique</option>
+                                    <option value="master_finance">Master en Finance</option>
+                                </optgroup>
+                                <optgroup label="Formations Professionnelles">
+                                    <option value="bachelor_marketing">Bachelor Marketing Digital</option>
+                                    <option value="certification_rh">Certification en Gestion des RH</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="annee_inscription">Année d'inscription *</label>
+                            <select id="annee_inscription" name="annee_inscription" required>
+                                <option value="2026-2027">2026-2027</option>
+                                <option value="2027-2028">2027-2028</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regime">Régime d'études *</label>
+                            <div class="radio-group">
+                                <label>
+                                    <input type="radio" name="regime" value="temps_plein" required> Temps plein
+                                </label>
+                                <label>
+                                    <input type="radio" name="regime" value="alternance"> Alternance
+                                </label>
+                                <label>
+                                    <input type="radio" name="regime" value="soir"> Cours du soir
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev">← Précédent</button>
+                            <button type="button" class="btn-next">Suivant →</button>
+                        </div>
+                    </div>
+
+                    <!-- Étape 3: Documents à fournir -->
+                    <div class="form-step" id="step3">
+                        <h2>Documents à fournir</h2>
+                        <p class="info-text">Veuillez télécharger les documents suivants (format PDF, JPG, PNG, max 5MB par fichier)</p>
+
+                        <div class="upload-group">
+                            <label for="diplome">Diplôme ou relevé de notes *</label>
+                            <div class="file-upload">
+                                <input type="file" id="diplome" name="diplome" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <span class="file-name">Aucun fichier choisi</span>
+                            </div>
+                        </div>
+
+                        <div class="upload-group">
+                            <label for="cin">Carte d'identité ou passeport *</label>
+                            <div class="file-upload">
+                                <input type="file" id="cin" name="cin" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <span class="file-name">Aucun fichier choisi</span>
+                            </div>
+                        </div>
+
+                        <div class="upload-group">
+                            <label for="photo">Photo d'identité *</label>
+                            <div class="file-upload">
+                                <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png" required>
+                                <span class="file-name">Aucun fichier choisi</span>
+                            </div>
+                        </div>
+
+                        <div class="upload-group">
+                            <label for="cv">Curriculum Vitae</label>
+                            <div class="file-upload">
+                                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
+                                <span class="file-name">Aucun fichier choisi</span>
+                            </div>
+                        </div>
+
+                        <div class="upload-group">
+                            <label for="lm">Lettre de motivation</label>
+                            <div class="file-upload">
+                                <input type="file" id="lm" name="lettre_motivation" accept=".pdf,.doc,.docx">
+                                <span class="file-name">Aucun fichier choisi</span>
+                            </div>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev">← Précédent</button>
+                            <button type="button" class="btn-next">Suivant →</button>
+                        </div>
+                    </div>
+
+                    <!-- Étape 4: Validation -->
+                    <div class="form-step" id="step4">
+                        <h2>Validation de la préinscription</h2>
+                        
+                        <div class="recap-section">
+                            <h3>Récapitulatif de votre dossier</h3>
+                            <div id="recapContent"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="conditions" required>
+                                Je certifie l'exactitude des informations fournies et j'accepte les conditions générales d'inscription *
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="rgpd" required>
+                                J'accepte que mes données soient traitées conformément à la politique de confidentialité *
+                            </label>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev">← Précédent</button>
+                            <button type="submit" class="btn-submit">Valider la préinscription</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ISMAP²</h3>
+                <p>Institut Supérieur de Management en Administration Publique et Privée</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="admission.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Angondjé Château, à proximité du complexe scolaire Pathy School</p>
+                <p><i class="fas fa-phone"></i> 060 18 76 34 / 076 41 00 30</p>
+                <p><i class="fas fa-envelope"></i> institutismap@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ISMAP² - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/forms.js"></script>
+</body>
+</html>

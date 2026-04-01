@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres - ISMAP² Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-dashboard">
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="ISMAP²" class="sidebar-logo">
+                <h3>ISMAP² Admin</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i><span>Tableau de bord</span></a>
+                <a href="candidats.html" class="nav-item"><i class="fas fa-users"></i><span>Candidats</span></a>
+                <a href="etudiants.html" class="nav-item"><i class="fas fa-user-graduate"></i><span>Étudiants</span></a>
+                <a href="paiements.html" class="nav-item"><i class="fas fa-credit-card"></i><span>Paiements</span></a>
+                <a href="formations.html" class="nav-item"><i class="fas fa-graduation-cap"></i><span>Formations</span></a>
+                <a href="contenu.html" class="nav-item"><i class="fas fa-newspaper"></i><span>Gestion du contenu</span></a>
+                <a href="utilisateurs.html" class="nav-item"><i class="fas fa-user-cog"></i><span>Utilisateurs</span></a>
+                <a href="parametres.html" class="nav-item active"><i class="fas fa-cog"></i><span>Paramètres</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn" class="nav-item"><i class="fas fa-sign-out-alt"></i><span>Déconnexion</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+                <div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Rechercher..."></div>
+                <div class="user-menu"><span class="user-name">Admin ISMAP²</span><img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar"></div>
+            </header>
+
+            <div class="content">
+                <div class="page-header">
+                    <h1>Paramètres</h1>
+                    <button class="btn-save-all" id="saveAllSettingsBtn"><i class="fas fa-save"></i> Sauvegarder tout</button>
+                </div>
+
+                <!-- Onglets Paramètres -->
+                <div class="settings-tabs">
+                    <button class="settings-tab active" data-tab="general">Général</button>
+                    <button class="settings-tab" data-tab="frais">Frais de scolarité</button>
+                    <button class="settings-tab" data-tab="paiement">Paiement en ligne</button>
+                    <button class="settings-tab" data-tab="securite">Sécurité</button>
+                    <button class="settings-tab" data-tab="email">Email & Notifications</button>
+                    <button class="settings-tab" data-tab="sauvegarde">Sauvegarde</button>
+                </div>
+
+                <!-- Paramètres Généraux -->
+                <div class="settings-content active" id="generalSettings">
+                    <div class="settings-card">
+                        <h3>Informations de l'établissement</h3>
+                        <form id="generalForm">
+                            <div class="form-group">
+                                <label>Nom de l'établissement</label>
+                                <input type="text" id="ecoleNom" value="ISMAP² - Institut Supérieur de Management en Administration Publique et Privée">
+                            </div>
+                            <div class="form-group">
+                                <label>Slogan</label>
+                                <input type="text" id="slogan" value="Former les leaders de demain">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Téléphone 1</label>
+                                    <input type="tel" id="tel1" value="060 18 76 34">
+                                </div>
+                                <div class="form-group">
+                                    <label>Téléphone 2</label>
+                                    <input type="tel" id="tel2" value="076 41 00 30">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email principal</label>
+                                <input type="email" id="emailPrincipal" value="institutismap@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Adresse</label>
+                                <textarea id="adresse" rows="2">Angondjé Château, à proximité du complexe scolaire Pathy School, Libreville, Gabon</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Année académique en cours</label>
+                                <select id="anneeAcademique">
+                                    <option value="2025-2026">2025-2026</option>
+                                    <option value="2026-2027" selected>2026-2027</option>
+                                    <option value="2027-2028">2027-2028</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Logo & Favicon</h3>
+                        <div class="logo-upload">
+                            <div class="current-logo">
+                                <img src="../assets/images/logo.png" alt="Logo actuel">
+                                <p>Logo actuel</p>
+                            </div>
+                            <div class="upload-area">
+                                <label class="upload-btn">
+                                    <i class="fas fa-upload"></i> Changer le logo
+                                    <input type="file" accept="image/*">
+                                </label>
+                                <small>Format recommandé: PNG, 200x200px</small>
+                            </div>
+                        </div>
+                        <div class="favicon-upload">
+                            <div class="current-favicon">
+                                <img src="../assets/images/favicon.png" alt="Favicon actuel">
+                                <p>Favicon actuel</p>
+                            </div>
+                            <div class="upload-area">
+                                <label class="upload-btn">
+                                    <i class="fas fa-upload"></i> Changer le favicon
+                                    <input type="file" accept="image/*">
+                                </label>
+                                <small>Format: ICO ou PNG, 32x32px</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frais de scolarité -->
+                <div class="settings-content" id="fraisSettings">
+                    <div class="settings-card">
+                        <h3>Tarifs des formations</h3>
+                        <table class="settings-table">
+                            <thead>
+                                <tr>
+                                    <th>Formation</th>
+                                    <th>Frais d'inscription</th>
+                                    <th>Frais de scolarité</th>
+                                    <th>Total</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tarifsList">
+                                <tr>
+                                    <td>Licence</td>
+                                    <td><input type="number" id="licence_inscription" value="50000"> FCFA</td>
+                                    <td><input type="number" id="licence_scolarite" value="500000"> FCFA</td>
+                                    <td><span id="licence_total">550 000</span> FCFA</td>
+                                    <td><button class="btn-save-tarif" data-type="licence"><i class="fas fa-save"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Master</td>
+                                    <td><input type="number" id="master_inscription" value="75000"> FCFA</td>
+                                    <td><input type="number" id="master_scolarite" value="650000"> FCFA</td>
+                                    <td><span id="master_total">725 000</span> FCFA</td>
+                                    <td><button class="btn-save-tarif" data-type="master"><i class="fas fa-save"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Formation Professionnelle</td>
+                                    <td><input type="number" id="pro_inscription" value="40000"> FCFA</td>
+                                    <td><input type="number" id="pro_scolarite" value="400000"> FCFA</td>
+                                    <td><span id="pro_total">440 000</span> FCFA</td>
+                                    <td><button class="btn-save-tarif" data-type="pro"><i class="fas fa-save"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Options de paiement échelonné</h3>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="paiement_echelonne" checked> Activer le paiement échelonné
+                            </label>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nombre d'échéances</label>
+                                <select id="nbEcheances">
+                                    <option value="3">3 échéances</option>
+                                    <option value="6">6 échéances</option>
+                                    <option value="10">10 échéances (mensuel)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Montant minimum par échéance</label>
+                                <input type="number" id="montantMinEcheance" value="50000"> FCFA
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paiement en ligne -->
+                <div class="settings-content" id="paiementSettings">
+                    <div class="settings-card">
+                        <h3>Configuration des moyens de paiement</h3>
+                        <div class="payment-methods-config">
+                            <div class="method-config">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="enable_card" checked> Carte bancaire
+                                </label>
+                                <div class="method-details">
+                                    <label>API Key (Stripe/PayTech)</label>
+                                    <input type="text" id="card_api_key" placeholder="sk_live_xxxxx">
+                                </div>
+                            </div>
+                            <div class="method-config">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="enable_mobile" checked> Mobile Money
+                                </label>
+                                <div class="method-details">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>MTN Money - Merchant ID</label>
+                                            <input type="text" id="mtn_merchant" placeholder="MTN_XXXX">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Airtel Money - Merchant ID</label>
+                                            <input type="text" id="airtel_merchant" placeholder="AIRTEL_XXXX">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="method-config">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="enable_wave" checked> Wave
+                                </label>
+                                <div class="method-details">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Numéro Wave</label>
+                                            <input type="tel" id="wave_number" value="060 18 76 34">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>API Token</label>
+                                            <input type="text" id="wave_token" placeholder="wave_live_xxxx">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="method-config">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="enable_bank" checked> Virement bancaire
+                                </label>
+                                <div class="method-details">
+                                    <div class="form-group">
+                                        <label>Coordonnées bancaires</label>
+                                        <textarea id="bank_details" rows="4">Banque: BGFI Bank Gabon
+Titulaire: ISMAP²
+IBAN: GA21 0000 1234 5678 9012 3456 789
+SWIFT: BGFIGALX</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sécurité -->
+                <div class="settings-content" id="securiteSettings">
+                    <div class="settings-card">
+                        <h3>Authentification</h3>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="two_factor"> Activer l'authentification à deux facteurs (2FA)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Temps d'inactivité avant déconnexion (minutes)</label>
+                            <input type="number" id="session_timeout" value="30">
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre de tentatives de connexion avant blocage</label>
+                            <input type="number" id="login_attempts" value="5">
+                        </div>
+                        <button class="btn-secondary" id="changePasswordBtn">Changer mon mot de passe</button>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Protection des données</h3>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rgpd_consent" checked> Activer la demande de consentement RGPD
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>URL de la politique de confidentialité</label>
+                            <input type="text" id="privacy_url" value="/confidentialite.html">
+                        </div>
+                        <div class="form-group">
+                            <label>Anonymisation des données après (jours)</label>
+                            <input type="number" id="data_retention" value="730">
+                            <small>Données anonymisées après 2 ans d'inactivité</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email & Notifications -->
+                <div class="settings-content" id="emailSettings">
+                    <div class="settings-card">
+                        <h3>Configuration SMTP</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Serveur SMTP</label>
+                                <input type="text" id="smtp_host" value="smtp.gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Port</label>
+                                <input type="number" id="smtp_port" value="587">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email d'envoi</label>
+                                <input type="email" id="smtp_email" value="no-reply@ismap2.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Mot de passe</label>
+                                <input type="password" id="smtp_password" placeholder="••••••••">
+                            </div>
+                        </div>
+                        <button class="btn-secondary" id="testEmailBtn">Tester la configuration</button>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Notifications automatiques</h3>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="notif_candidature" checked> Envoyer un email de confirmation de candidature
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="notif_admission" checked> Envoyer un email d'admission
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="notif_paiement" checked> Envoyer un reçu de paiement
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="notif_rappel" checked> Envoyer des rappels de paiement
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sauvegarde -->
+                <div class="settings-content" id="sauvegardeSettings">
+                    <div class="settings-card">
+                        <h3>Base de données</h3>
+                        <div class="backup-actions">
+                            <button class="btn-backup" id="backupNowBtn"><i class="fas fa-database"></i> Sauvegarder maintenant</button>
+                            <button class="btn-restore" id="restoreBackupBtn"><i class="fas fa-upload"></i> Restaurer une sauvegarde</button>
+                        </div>
+                        <div class="backup-schedule">
+                            <h4>Sauvegarde automatique</h4>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="auto_backup" checked> Activer les sauvegardes automatiques
+                                </label>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Fréquence</label>
+                                    <select id="backup_frequency">
+                                        <option value="daily">Quotidienne</option>
+                                        <option value="weekly" selected>Hebdomadaire</option>
+                                        <option value="monthly">Mensuelle</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Heure (UTC+1)</label>
+                                    <input type="time" id="backup_time" value="02:00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backup-list">
+                            <h4>Sauvegardes récentes</h4>
+                            <div class="backup-item">
+                                <div class="backup-info">
+                                    <i class="fas fa-file-archive"></i>
+                                    <span>ismap2_backup_20260315.sql</span>
+                                    <small>15/03/2026 02:00 - 45.2 MB</small>
+                                </div>
+                                <div class="backup-actions">
+                                    <button class="btn-download"><i class="fas fa-download"></i></button>
+                                    <button class="btn-restore"><i class="fas fa-undo"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="backup-item">
+                                <div class="backup-info">
+                                    <i class="fas fa-file-archive"></i>
+                                    <span>ismap2_backup_20260308.sql</span>
+                                    <small>08/03/2026 02:00 - 44.8 MB</small>
+                                </div>
+                                <div class="backup-actions">
+                                    <button class="btn-download"><i class="fas fa-download"></i></button>
+                                    <button class="btn-restore"><i class="fas fa-undo"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Actions -->
+                <div class="settings-footer">
+                    <button class="btn-reset" id="resetSettingsBtn">Réinitialiser tous les paramètres</button>
+                    <button class="btn-save" id="saveSettingsBtn">Sauvegarder les modifications</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Changer mot de passe -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Changer le mot de passe</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm">
+                    <div class="form-group">
+                        <label>Mot de passe actuel</label>
+                        <input type="password" id="current_password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nouveau mot de passe</label>
+                        <input type="password" id="new_password" required>
+                        <small>Minimum 8 caractères, incluant une majuscule et un chiffre</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmer le nouveau mot de passe</label>
+                        <input type="password" id="confirm_new_password" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel">Annuler</button>
+                <button class="btn-save" id="savePasswordBtn">Modifier</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
