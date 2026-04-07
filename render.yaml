@@ -1,0 +1,27 @@
+services:
+  - type: web_service
+    name: ismap2-backend
+    env: node
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SMTP_FROM
+        value: "ISMAP² <no-reply@ismap2.com>"
+      - key: UPLOAD_PATH
+        value: ./uploads
+      - key: MAX_FILE_SIZE
+        value: "5242880"
+      - key: BACKUP_PATH
+        value: ./backups
+      - key: BACKUP_SCHEDULE
+        value: "0 2 * * *"
+
+databases:
+  - name: ismap2-db
+    engine: mysql
+    plan: free
