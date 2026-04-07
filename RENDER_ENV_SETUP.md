@@ -38,21 +38,22 @@ API_URL=https://votre-app.onrender.com
 ```
 *(Remplacez par votre vraie URL Render)*
 
-## 🔐 Variables de paiement (optionnelles)
+## 🔐 Variables de paiement (optionnelles - à configurer plus tard)
 
 ### Stripe
+Obtenez vos clés sur https://dashboard.stripe.com/apikeys
 ```
-STRIPE_SECRET_KEY=sk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-STRIPE_PUBLIC_KEY=pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STRIPE_SECRET_KEY=votre_clé_secrète_stripe
+STRIPE_PUBLIC_KEY=votre_clé_publique_stripe
+STRIPE_WEBHOOK_SECRET=votre_secret_webhook_stripe
 ```
 
 ### Airtel Money
 ```
 AIRTEL_API_URL=https://api.airtel.ga
 AIRTEL_MERCHANT_ID=ISMAP_001
-AIRTEL_API_KEY=ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-AIRTEL_API_SECRET=as_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+AIRTEL_API_KEY=votre_clé_api_airtel
+AIRTEL_API_SECRET=votre_secret_api_airtel
 ```
 
 ### Moov Money
@@ -61,16 +62,16 @@ MOOV_API_URL=https://api.moov.ga
 MOOV_USERNAME=votre_username
 MOOV_PASSWORD=votre_password
 MOOV_MERCHANT_ID=ISMAP_001
-MOOV_API_KEY=mk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+MOOV_API_KEY=votre_clé_api_moov
 ```
 
 ### SingPay
 ```
 SINGPAY_API_URL=https://gateway.singpay.ga/v1
-SINGPAY_CLIENT_ID=client_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-SINGPAY_CLIENT_SECRET=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-SINGPAY_WALLET_ID=wallet_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-SINGPAY_DISBURSEMENT_ID=disb_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+SINGPAY_CLIENT_ID=votre_client_id
+SINGPAY_CLIENT_SECRET=votre_client_secret
+SINGPAY_WALLET_ID=votre_wallet_id
+SINGPAY_DISBURSEMENT_ID=votre_disbursement_id
 ```
 
 ## ⚠️ Important
