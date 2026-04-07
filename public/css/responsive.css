@@ -1,0 +1,155 @@
+/* Responsive Design */
+
+/* Tablettes (768px - 1024px) */
+@media (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-illustration {
+        max-height: 300px;
+    }
+
+    .hero-stats {
+        gap: 2rem;
+    }
+
+    .campus-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .campus-content h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobiles (< 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 5% 60px;
+        min-height: auto;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+    }
+
+    .hero-illustration {
+        max-height: 250px;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .stat {
+        padding: 1rem;
+    }
+
+    .stat h3 {
+        font-size: 1.5rem;
+    }
+
+    .campus-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .campus-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .campus-content p {
+        font-size: 1rem;
+    }
+
+    .campus-features li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Très petits écrans (< 480px) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 5% 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-buttons {
+        gap: 0.5rem;
+    }
+
+    .hero-illustration {
+        max-height: 200px;
+    }
+
+    .stat h3 {
+        font-size: 1.2rem;
+    }
+
+    .stat p {
+        font-size: 0.85rem;
+    }
+
+    .campus-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .campus-content p {
+        font-size: 0.9rem;
+    }
+
+    .campus-features li {
+        font-size: 0.85rem;
+        margin-bottom: 0.75rem;
+    }
+}
