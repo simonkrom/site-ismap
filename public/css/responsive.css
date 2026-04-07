@@ -152,4 +152,18 @@
         font-size: 0.85rem;
         margin-bottom: 0.75rem;
     }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-links a {
+        width: 36px;
+        height: 36px;
+    }
+
+    .social-links a img {
+        width: 20px;
+        height: 20px;
+    }
 }
