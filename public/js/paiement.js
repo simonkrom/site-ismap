@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cardForm) {
         cardForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            processPayment('carte bancaire');
+            processPayment('carte');
         });
     }
     
@@ -79,7 +79,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            processPayment('Mobile Money', `${operator.value} - ${phone.value}`);
+            processPayment('mobile_money', operator.value, phone.value);
+        });
+    }
+
+    // Gestion du paiement SingPay
+    const singpayForm = document.getElementById('singpayForm');
+    if (singpayForm) {
+        singpayForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const operator = document.querySelector('input[name="singpayOperator"]:checked');
+            const phone = document.getElementById('singpayPhone');
+            
+            if (!operator) {
+                alert('Veuillez sélectionner un opérateur (Airtel ou Moov)');
+                return;
+            }
+            if (!phone.value || phone.value.length < 10) {
+                alert('Veuillez entrer un numéro de téléphone valide');
+                return;
+            }
+            
+            processPayment('singpay', operator.value, phone.value);
         });
     }
     
@@ -132,29 +153,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Fonction de traitement du paiement
-    function processPayment(method, details = '') {
-        // Simuler le traitement du paiement
+    async function processPayment(method, operator = null, phoneNumber = null) {
         const submitBtn = document.querySelector('.btn-pay');
         const originalText = submitBtn.textContent;
         
         submitBtn.disabled = true;
         submitBtn.textContent = 'Traitement en cours...';
         
-        setTimeout(() => {
-            // Simulation de succès
-            const success = Math.random() > 0.1; // 90% de chance de succès
+        try {
+            // Récupérer les données du formulaire
+            const studentId = document.getElementById('studentId').textContent;
+            const totalAmount = parseInt(document.getElementById('totalAmount').textContent.replace(/\D/g, ''));
             
-            if (success) {
-                alert(`✅ Paiement effectué avec succès !\n\nMéthode: ${method}\nMontant: 575 000 FCFA\nNuméro de transaction: ISMAP${Date.now()}\n\nUn reçu vous a été envoyé par email.`);
+            const paymentData = {
+                etudiant_id: studentId,
+                formation_id: 1, // À adapter selon votre logique
+                montant: totalAmount,
+                methode: method,
+                operateur: operator,
+                phoneNumber: phoneNumber,
+                description: 'Paiement des frais de scolarité'
+            };
+            
+            const response = await fetch('/api/paiements', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(paymentData)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                alert(`✅ Paiement initié avec succès !\n\nMéthode: ${method}\nMontant: ${totalAmount} FCFA\n\nVous recevrez une confirmation USSD sur votre téléphone.`);
                 
                 // Redirection vers la confirmation
-                window.location.href = 'confirmation.html';
+                setTimeout(() => {
+                    window.location.href = 'confirmation.html';
+                }, 2000);
             } else {
-                alert('❌ Le paiement a échoué. Veuillez réessayer ou contacter le service financier.');
+                alert(`❌ Erreur: ${result.message}`);
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
             }
-        }, 2000);
+        } catch (error) {
+            console.error('Erreur:', error);
+            alert('❌ Une erreur s\'est produite. Veuillez réessayer.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }
     }
     
     // Validation des formulaires en temps réel

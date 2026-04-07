@@ -93,6 +93,10 @@
                                     <i class="fas fa-mobile-alt"></i>
                                     <span>Mobile Money</span>
                                 </div>
+                                <div class="method-card" data-method="singpay">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>SingPay</span>
+                                </div>
                                 <div class="method-card" data-method="bank">
                                     <i class="fas fa-university"></i>
                                     <span>Virement bancaire</span>
@@ -158,6 +162,35 @@
                                 <div class="form-group">
                                     <label for="pinCode">Code PIN (4 chiffres)</label>
                                     <input type="password" id="pinCode" maxlength="4" pattern="[0-9]{4}">
+                                </div>
+                                <button type="submit" class="btn-pay">Payer 575 000 FCFA</button>
+                            </form>
+                        </div>
+
+                        <!-- Paiement SingPay (Airtel Money & Moov Money) -->
+                        <div id="singpayPayment" class="payment-form">
+                            <h3>Paiement SingPay</h3>
+                            <p class="info-text">Payez facilement via Airtel Money ou Moov Money</p>
+                            <form id="singpayForm">
+                                <div class="form-group">
+                                    <label>Opérateur</label>
+                                    <div class="radio-group">
+                                        <label>
+                                            <input type="radio" name="singpayOperator" value="airtel"> Airtel Money
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="singpayOperator" value="moov"> Moov Money
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="singpayPhone">Numéro de téléphone</label>
+                                    <input type="tel" id="singpayPhone" placeholder="+237XXXXXXXXX ou +229XXXXXXXXX">
+                                    <small>Format: +237... (Airtel) ou +229... (Moov)</small>
+                                </div>
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Vous recevrez une demande de confirmation USSD sur ce numéro</span>
                                 </div>
                                 <button type="submit" class="btn-pay">Payer 575 000 FCFA</button>
                             </form>

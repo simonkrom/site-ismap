@@ -1,6 +1,7 @@
 const stripeService = require('./stripeService');
 const airtelMoneyService = require('./airtelMoneyService');
 const moovMoneyService = require('./moovMoneyService');
+const singpayService = require('./singpayService');
 const logger = require('../utils/logger');
 
 /**
@@ -9,8 +10,8 @@ const logger = require('../utils/logger');
 class PaymentFactory {
     /**
      * Obtenir le service approprié selon la méthode
-     * @param {string} method - carte, mobile_money (airtel), wave (moov)
-     * @param {string} operator - airtel, moov (pour mobile_money)
+     * @param {string} method - carte, mobile_money, singpay
+     * @param {string} operator - airtel, moov, wave (pour mobile_money), airtel, moov (pour singpay)
      */
     getService(method, operator = null) {
         switch (method) {
@@ -26,6 +27,12 @@ class PaymentFactory {
             case 'wave':
                 // Wave utilise l'API Moov Money (partenaire)
                 return moovMoneyService;
+            case 'singpay':
+                // SingPay supporte Airtel et Moov Money
+                if (operator === 'airtel' || operator === 'moov') {
+                    return singpayService;
+                }
+                throw new Error(`Opérateur SingPay non supporté: ${operator}`);
             default:
                 throw new Error(`Méthode de paiement non supportée: ${method}`);
         }
@@ -60,6 +67,24 @@ class PaymentFactory {
                 case 'wave':
                     // Wave utilise le paiement direct Moov
                     return await moovMoneyService.initiateDirectPayment(phoneNumber, amount, description, reference);
+                
+                case 'singpay':
+                    if (operator === 'airtel') {
+                        return await singpayService.initiateAirtelMoneyPayment({
+                            amount,
+                            phoneNumber,
+                            reference,
+                            description
+                        });
+                    } else if (operator === 'moov') {
+                        return await singpayService.initiateMoovMoneyPayment({
+                            amount,
+                            phoneNumber,
+                            reference,
+                            description
+                        });
+                    }
+                    break;
                     
                 default:
                     throw new Error(`Méthode non supportée: ${method}`);
@@ -121,6 +146,8 @@ class PaymentFactory {
                 }
             } else if (method === 'wave') {
                 return await moovMoneyService.checkTransactionStatus(reference);
+            } else if (method === 'singpay') {
+                return await singpayService.getTransactionByReference(reference);
             }
             
             throw new Error(`Méthode non supportée pour vérification: ${method}`);

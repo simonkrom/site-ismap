@@ -263,10 +263,56 @@ const moovWebhook = async (req, res) => {
     }
 };
 
+// Webhook SingPay (callback)
+const singpayWebhook = async (req, res) => {
+    try {
+        const { reference, id, status, result } = req.body;
+        
+        logger.info(`SingPay webhook reçu: ${reference} - Status: ${status}, Result: ${result}`);
+        
+        const paiement = await Paiement.findOne({
+            where: { reference: reference }
+        });
+        
+        if (!paiement) {
+            logger.warn(`Paiement non trouvé pour référence: ${reference}`);
+            return res.json({ received: true });
+        }
+        
+        // Mettre à jour le paiement selon le status et result
+        let updateData = {
+            numero_transaction: id
+        };
+        
+        if (status === 'Terminate') {
+            if (result === 'Success') {
+                updateData.statut = 'success';
+                updateData.date_validation = new Date();
+            } else if (result === 'PasswordError' || result === 'BalanceError') {
+                updateData.statut = 'failed';
+            }
+        }
+        
+        await paiement.update(updateData);
+        
+        // Si le paiement est réussi, envoyer un reçu
+        if (updateData.statut === 'success') {
+            const etudiant = await Etudiant.findByPk(paiement.etudiant_id);
+            await emailService.sendReceipt(paiement, etudiant);
+        }
+        
+        res.json({ received: true });
+    } catch (error) {
+        logger.error('SingPay webhook error:', error);
+        res.status(500).send('Webhook error');
+    }
+};
+
 module.exports = {
     createPaiement,
     validatePaiement,
     checkPaiementStatus,
     stripeWebhook,
-    moovWebhook
+    moovWebhook,
+    singpayWebhook
 };
